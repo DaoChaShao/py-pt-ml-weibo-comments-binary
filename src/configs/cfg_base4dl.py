@@ -24,7 +24,7 @@ class DataPreprocessor:
 @dataclass
 class Hyperparameters:
     ACCELERATOR: str = "cuda" if cuda.is_available() else "cpu"
-    ALPHA: float = 1e-4
+    # ALPHA: float = 1e-4
     DECAY: float = 1e-4
     EPOCHS: int = 100
 
