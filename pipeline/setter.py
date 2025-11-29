@@ -18,7 +18,7 @@ def prepare_data() -> None:
         # Get preprocessed data
         X_train_seqs, X_valid_seqs, y_train, y_valid = process_data()
 
-        # TODO： Further data preparation steps can be added here
+        pass
 
 
 if __name__ == "__main__":
