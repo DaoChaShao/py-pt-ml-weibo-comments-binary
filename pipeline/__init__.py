@@ -26,7 +26,7 @@ Usage:
 __author__ = "Shawn Yu"
 __version__ = "0.2.0"
 
-from .processor import process_data
+from .preprocessor import process_data
 from .setter import prepare_data
 
 __all__ = [
