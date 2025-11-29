@@ -8,11 +8,18 @@
 
 from pipeline import process_data
 
+from pipeline.preprocessor import process_data
+from src.utils.helper import Timer
+
 
 def prepare_data() -> None:
     """ Main Function """
-    pass
+    with Timer("Data Preparation"):
+        # Get preprocessed data
+        X_train_seqs, X_valid_seqs, y_train, y_valid = process_data()
+
+        # TODO： Further data preparation steps can be added here
 
 
 if __name__ == "__main__":
-    pass
+    prepare_data()
