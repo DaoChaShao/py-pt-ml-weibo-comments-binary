@@ -5,6 +5,11 @@
 
 ### Features
 
+- add setter.py for data preparation functionality ([4c57ce0](https://github.com///commit/4c57ce0b3c943ea1b9328b8c47c5065954b59603))
+- add processor.py for data processing functionality ([81cbac8](https://github.com///commit/81cbac8eff2d1e7e80b170b950d491112a032d7d))
+- add argument parsing and data preparation import in main.py ([3d3666e](https://github.com///commit/3d3666e0a9a0909ae2a140247d5c916e0ab26d03))
+- add __init__.py for data processing module in deep learning workflow ([12685e1](https://github.com///commit/12685e1cf8ba0b2ead865b26bac098fc9934a13c))
+- add CHANGELOG.md for project versioning and feature tracking ([0f2aaf5](https://github.com///commit/0f2aaf51890f36789d8f13058416a24d6bac0c46))
 - add weibo_comments.csv as nlp project data ([71d64fb](https://github.com///commit/71d64fbd497d60356e808008d9531e3a36455c33))
 - add uv.lock ([647198d](https://github.com///commit/647198d110712f11b6a36701bf570ccd79905c04))
 - add unet_sem_seg.py for binary segmentation evaluation and training ([ec3b63b](https://github.com///commit/ec3b63bf5ea44162fe2243b8cc6da03e612d61c7))
