@@ -45,7 +45,8 @@ from .highlighter import (black, red, green, yellow, blue, purple, cyan, white,
 from .logger import record_log
 from .nlp import (regular_chinese, regular_english,
                   count_frequency, unique_characters, extract_zh_chars,
-                  spacy_single_tokeniser, spacy_batch_tokeniser)
+                  spacy_single_tokeniser, spacy_batch_tokeniser,
+                  build_word2id_seqs)
 from .PT import (TorchRandomSeed,
                  check_device, get_device,
                  arr2tensor, df2tensor)
@@ -78,6 +79,7 @@ __all__ = [
     "regular_chinese", "regular_english",
     "count_frequency", "unique_characters", "extract_zh_chars",
     "spacy_single_tokeniser", "spacy_batch_tokeniser",
+    "build_word2id_seqs",
 
     "TorchRandomSeed",
     "check_device", "get_device",
