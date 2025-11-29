@@ -10,5 +10,21 @@ def main() -> None:
     """ Main Function """
     pass
 
+"""
+import argparse
+from src.configs import trainer_config, dataset_config
+from src.nets.unet.standard4 import Standard4LayersUNet
+from src.datasets.unet.binary_dataset import BinarySegDataset
+from src.trainers.unet.binary_trainer import UNetSegmentationTrainer
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--batch_size", type=int, default=trainer_config.TRAINER_CONFIG["batch_size"])
+parser.add_argument("--lr", type=float, default=trainer_config.TRAINER_CONFIG["learning_rate"])
+parser.add_argument("--device", type=str, default=trainer_config.TRAINER_CONFIG["device"])
+parser.add_argument("--model_save_path", type=str, default="./logs/unet_binary/best_model.pth")
+args = parser.parse_args()
+"""
+
+
 if __name__ == "__main__":
     main()
