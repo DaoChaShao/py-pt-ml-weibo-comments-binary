@@ -1,10 +1,15 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com///compare/2b4b12998170fd44bbc92919c24a6a61f2249163...0.1.0) (2025-11-29)
+## [0.1.0](https://github.com///compare/2b4b12998170fd44bbc92919c24a6a61f2249163...0.1.0) (2025-11-30)
 
 ### Features
 
+- implement data preparation function with timing and preprocessing ([bb114a6](https://github.com///commit/bb114a6e06656396afe0f6664783990e15cef3ae))
+- add data preprocessing functionality in preprocessor.py ([e7e2d07](https://github.com///commit/e7e2d07549bd5313efbbbda689617d3da336cef9))
+- add build_word2id_seqs utility to module exports ([e0d6dae](https://github.com///commit/e0d6daee0657a4cdf3b4a7757ae6d5a07503bd65))
+- enhance tokenization functions and add build_word2id_seqs utility ([91bc446](https://github.com///commit/91bc446e425492a255199db1348f6b3f20981020))
+- add new file paths for data sources in cfg_base.py ([9b19772](https://github.com///commit/9b197724545f487fd341a1d13182acb0ff588b67))
 - add setter.py for data preparation functionality ([4c57ce0](https://github.com///commit/4c57ce0b3c943ea1b9328b8c47c5065954b59603))
 - add processor.py for data processing functionality ([81cbac8](https://github.com///commit/81cbac8eff2d1e7e80b170b950d491112a032d7d))
 - add argument parsing and data preparation import in main.py ([3d3666e](https://github.com///commit/3d3666e0a9a0909ae2a140247d5c916e0ab26d03))
@@ -59,4 +64,19 @@
 - add Dataloader module with specialized PyTorch DataLoader wrappers ([9f0ab10](https://github.com///commit/9f0ab10915c175b18a5e0f78908a51035b5e7ea6))
 - add criterion module with specialized PyTorch loss functions ([ee38b87](https://github.com///commit/ee38b87eca606c4b2b3350611ad399975bdb74bf))
 - add initial configuration module for ML/Data Processing ([c29fb30](https://github.com///commit/c29fb30ac6c26ee5ccbfd3104f7481ab40613343))
+
+### Bug Fixes
+
+- comment out ALPHA hyperparameter in cfg_base4dl.py ([15799bd](https://github.com///commit/15799bd95ddbfcfc30dd413ef05b456121dfa984))
+- update import from processor to preprocessor in __init__.py ([66c4c67](https://github.com///commit/66c4c672939c46e455779bcf156d954e9b2b1610))
+
+### Chore
+
+- add .gitignore to exclude Python-generated files and IDE configurations ([995f430](https://github.com///commit/995f430b6980ef5552a1ec14d79276a5629c58b6))
+- update CHANGELOG.md with recent feature additions ([571e9e9](https://github.com///commit/571e9e97afd12dab1c3bcd60c1586c6a7dfe6f08))
+
+### Code Refactoring
+
+- remove TODO comment for further data preparation steps in setter.py ([2759ecb](https://github.com///commit/2759ecbc97b07654bc98a2157cb9efd9b8c95ac3))
+- change name of processor.py ([052f2ac](https://github.com///commit/052f2ac26f95767626a4a11bc44bb907d8955c49))
 
