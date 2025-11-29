@@ -6,9 +6,15 @@
 # @File     :   main.py
 # @Desc     :   
 
+from argparse import ArgumentParser
+
+from pipeline import prepare_data
+
+
 def main() -> None:
     """ Main Function """
     pass
+
 
 """
 import argparse
@@ -24,7 +30,6 @@ parser.add_argument("--device", type=str, default=trainer_config.TRAINER_CONFIG[
 parser.add_argument("--model_save_path", type=str, default="./logs/unet_binary/best_model.pth")
 args = parser.parse_args()
 """
-
 
 if __name__ == "__main__":
     main()
