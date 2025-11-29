@@ -20,7 +20,7 @@ nlp_en = load(CONFIG.FILEPATHS.SPACY_MODEL_EN)
 nlp_zh = load(CONFIG.FILEPATHS.SPACY_MODEL_ZH)
 
 
-@timer
+# @timer
 def regular_chinese(words: list[str]) -> list[str]:
     """ Retain only Chinese characters in the list of words
     :param words: list of words to process
@@ -28,9 +28,9 @@ def regular_chinese(words: list[str]) -> list[str]:
     """
     pattern = compile(r"[\u4e00-\u9fa5]+")
 
-    chinese: list[str] = [word for word in words if pattern.match(word)]
+    chinese = [word for word in words if pattern.fullmatch(word)]
 
-    print(f"Retained {len(chinese)} Chinese words from the original {len(words)} words.")
+    # print(f"Retained {len(chinese)} Chinese words from the original {len(words)} words.")
 
     return chinese
 
@@ -43,7 +43,7 @@ def regular_english(words: list[str]) -> list[str]:
     """
     pattern = compile(r"^[A-Za-z]+$")
 
-    english: list[str] = [word.lower() for word in words if pattern.match(word)]
+    english: list[str] = [word.lower() for word in words if pattern.fullmatch(word)]
 
     print(f"Retained {len(english)} English words from the original {len(words)} words.")
 
@@ -121,15 +121,18 @@ def spacy_single_tokeniser(content: str, lang: str) -> list[str]:
     :param lang: language code for the text (e.g., 'en' for English, 'zh' for Chinese)
     :return: list of tokens
     """
+    print(nlp_zh.pipe_names)
+    print(nlp_en.pipe_names)
+
     words: list[str] = []
 
     match lang:
         case "en":
             doc = nlp_en(content)
-            words = [token.lemma_.lower() for token in doc]
+            words = [token.lemma_.lower() for token in doc if token.lemma_.isalpha() and not token.is_stop]
         case "zh":
             doc = nlp_zh(content)
-            words = [token.text for token in doc]
+            words = [token.text for token in doc if token.text.strip() and not token.is_punct and not token.is_stop]
         case _:
             raise ValueError(f"Unsupported language: {lang}")
 
@@ -146,23 +149,48 @@ def spacy_batch_tokeniser(contents: list[str], lang: str = "en", batches: int = 
     :param batches: number of texts to process in each batch
     :return: list of tokenized texts
     """
+    print(nlp_zh.pipe_names)
+    print(nlp_en.pipe_names)
+
     docs = None
     match lang:
         case "en":
-            docs = list(nlp_en.pipe(contents, batch_size=batches))
+            docs = nlp_en.pipe(contents, batch_size=batches)
         case "zh":
-            docs = list(nlp_zh.pipe(contents, batch_size=batches))
+            docs = nlp_zh.pipe(contents, batch_size=batches)
         case _:
             raise ValueError(f"Unsupported language: {lang}")
 
     words: list[list[str]] = []
-    for doc in tqdm(docs, total=len(docs), desc="SpaCy Batch Tokeniser"):
-        tokens = [token.lemma_.lower() for token in doc if token.lemma_.isalpha()]
+    for doc in tqdm(docs, total=len(contents), desc="SpaCy Batch Tokeniser"):
+        if lang == "en":
+            tokens = [token.lemma_.lower() for token in doc if token.lemma_.isalpha() and not token.is_stop]
+        else:
+            tokens = [token.text for token in doc if token.text.strip() and not token.is_punct and not token.is_stop]
         words.append(tokens)
 
-    print(f"Average length is {sum(len(w) for w in words) / len(words):.1f} words per content after SpaCy Tokeniser.")
+    print(f"Average length is {sum(len(w) for w in words) / len(words):.1f} words per content.")
 
     return words
+
+
+def build_word2id_seqs(contents: list[list[str]], dictionary: dict[str, int]) -> list[list[int]]:
+    """ Build word2id sequences from contents using the provided dictionary
+    :param contents: list of texts to convert
+    :param dictionary: word2id mapping dictionary
+    :return: list of word2id sequences
+    """
+    sequences: list[list[int]] = []
+    for content in contents:
+        sequence: list[int] = []
+        for word in content:
+            if word in dictionary:
+                sequence.append(dictionary[word])
+            else:
+                sequence.append(dictionary["<UNK>"])
+        sequences.append(sequence)
+
+    return sequences
 
 
 if __name__ == "__main__":
