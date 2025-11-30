@@ -15,9 +15,10 @@ from src.utils.helper import Timer
 from src.utils.highlighter import starts
 from src.utils.nlp import spacy_batch_tokeniser, regular_chinese, count_frequency, build_word2id_seqs
 from src.utils.stats import split_data, save_json
+from src.utils.THU import cut_only
 
 
-def process_data() -> tuple[list[list[int]], list[list[int]], DataFrame, DataFrame]:
+def process_data() -> tuple[list[list[int]], list[list[int]], DataFrame, DataFrame, dict, int]:
     """ Main Function """
     with Timer("Data Preprocessing"):
         path: Path = Path(CONFIG4RNN.FILEPATHS.DATA4ALL)
@@ -46,15 +47,20 @@ def process_data() -> tuple[list[list[int]], list[list[int]], DataFrame, DataFra
             # print(y_train.head())
 
             # Tokenise text data
-            amount: int | None = 300
+            # amount: int | None = 300
+            amount: int | None = None
             X_train_contents: list[str] = X_train.iloc[:, 0].tolist()
             X_valid_contents: list[str] = X_valid.iloc[:, 0].tolist()
             if amount is not None:
-                lines_train: list[list[str]] = spacy_batch_tokeniser(X_train_contents[:amount], lang="zh")
-                lines_valid: list[list[str]] = spacy_batch_tokeniser(X_valid_contents[:amount], lang="zh")
+                # lines_train: list[list[str]] = spacy_batch_tokeniser(X_train_contents[:amount], lang="zh")
+                # lines_valid: list[list[str]] = spacy_batch_tokeniser(X_valid_contents[:amount], lang="zh")
+                lines_train: list[list[str]] = [cut_only(line) for line in X_train_contents[:amount]]
+                lines_valid: list[list[str]] = [cut_only(line) for line in X_valid_contents[:amount]]
             else:
-                lines_train: list[list[str]] = spacy_batch_tokeniser(X_train.iloc[:, 0].tolist(), lang="zh")
-                lines_valid: list[list[str]] = spacy_batch_tokeniser(X_valid.iloc[:, 0].tolist(), lang="zh")
+                # lines_train: list[list[str]] = spacy_batch_tokeniser(X_train.iloc[:, 0].tolist(), lang="zh")
+                # lines_valid: list[list[str]] = spacy_batch_tokeniser(X_valid.iloc[:, 0].tolist(), lang="zh")
+                lines_train: list[list[str]] = [cut_only(line) for line in X_train_contents]
+                lines_valid: list[list[str]] = [cut_only(line) for line in X_valid_contents]
             # pprint(lines_train[:5])
             lines_train: list[list[str]] = [regular_chinese(words) for words in lines_train]
             # pprint(lines_train[:5])
@@ -102,16 +108,41 @@ def process_data() -> tuple[list[list[int]], list[list[int]], DataFrame, DataFra
             print(f"Train dataset: {len(X_train)} Samples")
             print(f"Valid dataset: {len(X_valid)} Samples")
             print(f"Dictionary Size: {len(dictionary)}")
-            print(f"The max length of the sequence: {max_len}")
+            print(f"The min length of the sequence: {min_len}")
             print(f"The average length of the sequence: {avg_len:.1f}")
+            print(f"The max length of the sequence: {max_len}")
             print(f"Train Labels: {y_train.values.sum()} poses, {len(y_train) - y_train.values.sum()} negs")
             print(f"Valid Labels: {y_valid.values.sum()} poses, {len(y_valid) - y_valid.values.sum()} negs")
             starts()
             print()
+            """
+            Spacy
+            *******************Data Preprocessing Summary*******************
+            Train dataset: 83991 Samples
+            Valid dataset: 17998 Samples
+            Dictionary Size: 32086
+            The min length of the sequence: 0
+            The average length of the sequence: 14.1
+            The max length of the sequence: 58
+            Train Labels: 42014 poses, 41977 negs
+            Valid Labels: 9040 poses, 8958 negs
+            ****************************************************************
+            THULAC
+            *******************Data Preprocessing Summary*******************
+            Train dataset: 83991 Samples
+            Valid dataset: 17998 Samples
+            Dictionary Size: 29163
+            The min length of the sequence: 1
+            The average length of the sequence: 28.7
+            The max length of the sequence: 111
+            Train Labels: 42014 poses, 41977 negs
+            Valid Labels: 9040 poses, 8958 negs
+            ****************************************************************
+            """
         else:
             raise FileNotFoundError(f"Data file {path.name} NOT found!")
 
-        return X_train, X_valid, y_train, y_valid
+        return X_train, X_valid, y_train, y_valid, dictionary, max_len
 
 
 if __name__ == "__main__":
