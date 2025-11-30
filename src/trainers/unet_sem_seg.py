@@ -3,7 +3,7 @@
 # @Time     :   2025/11/17 23:06
 # @Author   :   Shawn
 # @Version  :   Version 0.1.0
-# @File     :   unet_sem_seg.py
+# @File     :   sem_seg.py
 # @Desc     :   
 
 from PySide6.QtCore import QObject, Signal
