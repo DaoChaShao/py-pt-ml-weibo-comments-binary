@@ -13,6 +13,7 @@ from torch import cuda
 @dataclass
 class DataPreprocessor:
     BATCHES: int = 16
+    DROPOUT: float = 0.3
     IMAGE_HEIGHT: int = 320
     IMAGE_WIDTH: int = 384
     PCA_VARIANCE_THRESHOLD: float = 0.95
