@@ -3,7 +3,7 @@
 # @Time     :   2025/11/21 16:14
 # @Author   :   Shawn
 # @Version  :   Version 0.1.0
-# @File     :   unet_sem_seg.py
+# @File     :   sem_seg.py
 # @Desc     :   
 
 from numpy import array, ndarray
@@ -11,7 +11,7 @@ from PIL import Image
 from torch import Tensor, from_numpy
 from torch.utils.data import Dataset
 
-from src.datasets.unet_mask_mapper import mask2index
+from src.datasets.mask_mapper import mask2index
 
 
 class TorchDataset4SemanticSegmentation(Dataset):
