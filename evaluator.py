@@ -138,7 +138,14 @@ def main() -> None:
             print(f"Final Accuracy: {green(f"{accuracy:.4f}")} | failure: {red(f"{failure:.4f}")}")
             """
             THULAC Tokeniser Results:
-            - 
+            [0001/1125] Cumulative Accuracy: 1.0000 | failure: 0.0000
+            [0002/1125] Cumulative Accuracy: 0.9375 | failure: 0.0625
+            [0003/1125] Cumulative Accuracy: 0.9583 | failure: 0.0417
+            ···
+            [1123/1125] Cumulative Accuracy: 0.9767 | failure: 0.0233
+            [1124/1125] Cumulative Accuracy: 0.9767 | failure: 0.0233
+            [1125/1125] Cumulative Accuracy: 0.9767 | failure: 0.0233
+            Final Accuracy: 0.9767 | failure: 0.0233
             """
         else:
             print(f"Sorry! {params.name}, {path.name} and {dic.name} do not exist. Please train the model first.")
