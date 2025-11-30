@@ -3,7 +3,7 @@
 # @Time     :   2025/11/23 18:19
 # @Author   :   Shawn
 # @Version  :   Version 0.1.0
-# @File     :   unet_mask_mapper.py
+# @File     :   mask_mapper.py
 # @Desc     :   
 
 from PIL import Image
