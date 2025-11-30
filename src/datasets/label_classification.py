@@ -3,12 +3,12 @@
 # @Time     :   2025/11/24 23:20
 # @Author   :   Shawn
 # @Version  :   Version 0.1.0
-# @File     :   mlp_label_classification.py
+# @File     :   label_classification.py
 # @Desc     :
 
 from numpy import ndarray
 from pandas import DataFrame, Series
-from torch import Tensor, tensor, float32, int64
+from torch import Tensor, tensor, float32
 from torch.utils.data import Dataset
 
 
@@ -34,18 +34,17 @@ class TorchDataset4LabelClassification(Dataset):
         return self._labels
 
     @staticmethod
-    def _to_tensor(data: DataFrame | Tensor | ndarray | list, label: bool = False) -> Tensor:
+    def _to_tensor(data: DataFrame | Tensor | ndarray | list) -> Tensor:
         """ Convert input data to a PyTorch tensor on the specified device
         :param data: the input data (DataFrame, ndarray, list, or Tensor)
-        :param label: whether the data is label data
         :return: the converted PyTorch tensor
         """
         if isinstance(data, (DataFrame, Series)):
-            out = tensor(data.values, dtype=float32 if not label else int64)
+            out = tensor(data.values, dtype=float32)
         elif isinstance(data, Tensor):
-            out = data.float() if not label else data.long()
+            out = data.float()
         elif isinstance(data, (ndarray, list)):
-            out = tensor(data, dtype=float32 if not label else int64)
+            out = tensor(data, dtype=float32)
         else:
             raise TypeError(f"Unsupported data type: {type(data)}")
 
