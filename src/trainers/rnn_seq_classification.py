@@ -133,8 +133,8 @@ class TorchTrainer4Seq2Classification(QObject):
         :return: None
         """
         # Initialize logger
-        timer = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        logger = record_log(f"train_at_{timer}_THULAC")
+        timer = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+        logger = record_log(f"train@{timer}-THULAC")
 
         _best_valid_loss = float("inf")
         _patience = 5
