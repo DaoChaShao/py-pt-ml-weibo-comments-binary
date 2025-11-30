@@ -29,12 +29,12 @@ Usage:
 __author__ = "Shawn Yu"
 __version__ = "0.2.0"
 
-from .mlp_label_classification import TorchDataset4LabelClassification
+from .label_classification import TorchDataset4LabelClassification
 from .reshaper import reshape_to_grayscale
-from .rnn_seq_classification import TorchDataset4Seq2Classification
-from .rnn_seq_next_step import TorchDataset4SeqPredictionNextStep
-from .unet_mask_mapper import mask2index
-from .unet_sem_seg import TorchDataset4SemanticSegmentation
+from .seq_classification import TorchDataset4Seq2Classification
+from .seq_next_step import TorchDataset4SeqPredictionNextStep
+from .mask_mapper import mask2index
+from .sem_seg import TorchDataset4SemanticSegmentation
 
 __all__ = [
     "TorchDataset4LabelClassification",
