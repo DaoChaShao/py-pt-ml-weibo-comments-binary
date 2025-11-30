@@ -3,7 +3,7 @@
 # @Time     :   2025/11/24 22:57
 # @Author   :   Shawn
 # @Version  :   Version 0.1.0
-# @File     :   rnn_seq_next_step.py
+# @File     :   seq_next_step.py
 # @Desc     :   
 
 from torch import Tensor, tensor
