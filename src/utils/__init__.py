@@ -49,7 +49,7 @@ from .nlp import (regular_chinese, regular_english,
                   build_word2id_seqs)
 from .PT import (TorchRandomSeed,
                  check_device, get_device,
-                 arr2tensor, df2tensor)
+                 series2tensor, sequences2tensors)
 from .stats import (NumpyRandomSeed,
                     load_csv, load_text, summary_dataframe,
                     load_paths, split_paths,
@@ -83,7 +83,7 @@ __all__ = [
 
     "TorchRandomSeed",
     "check_device", "get_device",
-    "arr2tensor", "df2tensor",
+    "series2tensor", "sequences2tensors",
 
     "NumpyRandomSeed",
     "load_csv", "load_text", "summary_dataframe",
