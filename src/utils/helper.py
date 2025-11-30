@@ -144,7 +144,6 @@ def read_files(file_paths: list[str | Path], workers: int = 10) -> list[str]:
     return contents
 
 
-@timer
 def read_yaml(file_path: str | Path) -> dict:
     """ Read YAML file and return as dict
     :param file_path: path to the file
