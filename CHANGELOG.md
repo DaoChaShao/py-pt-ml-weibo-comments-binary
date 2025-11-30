@@ -1,10 +1,11 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com///compare/2b4b12998170fd44bbc92919c24a6a61f2249163...0.1.0) (2025-11-30)
+## [0.1.0](https://github.com///compare/2b4b12998170fd44bbc92919c24a6a61f2249163...0.1.0) (2025-12-01)
 
 ### Features
 
+- enhance evaluator.py with data tokenization and batch evaluation ([8cd0fa1](https://github.com///commit/8cd0fa18bfaf73a4d00fc01d5c479333c94e121e))
 - add evaluator script for model performance evaluation ([4b5e5d0](https://github.com///commit/4b5e5d0c9a5bb5e86912d5164328050398501f71))
 - add training log for THULAC model with performance metrics ([f845852](https://github.com///commit/f845852092d3c4d0353221639d02bc8324ef96cc))
 - add training log for spacy model with performance metrics ([7667fcd](https://github.com///commit/7667fcd5c8c1808f2cbdb41754a435cc11c2cd38))
@@ -79,6 +80,7 @@
 
 ### Bug Fixes
 
+- correct formatting in accuracy print statement in evaluator.py ([c33c782](https://github.com///commit/c33c782af9eb53728d4f2d182ba87697db1f57a7))
 - fix the parameters in the cfg_base4dl.py ([2b8820f](https://github.com///commit/2b8820fb5d9410bdc22b4428b645a53fb7ec750b))
 - fix the parameters in the cfg_rnn.py ([8b357a7](https://github.com///commit/8b357a7ee9ca2f2981de01a9415985f8f6065e7d))
 - comment out ALPHA hyperparameter in cfg_base4dl.py ([15799bd](https://github.com///commit/15799bd95ddbfcfc30dd413ef05b456121dfa984))
@@ -86,7 +88,7 @@
 
 ### Chore
 
-- update CHANGELOG.md with recent feature additions and bug fixes ([772f75d](https://github.com///commit/772f75dc46e115ff2bc9997284c4011682b741a0))
+- update CHANGELOG.md with recent feature additions and bug fixes ([059ed3b](https://github.com///commit/059ed3b70481ee95842cbe50cd9ffbe99aaf1ce6))
 - add .gitignore to exclude Python-generated files and IDE configurations ([995f430](https://github.com///commit/995f430b6980ef5552a1ec14d79276a5629c58b6))
 - update CHANGELOG.md with recent feature additions ([571e9e9](https://github.com///commit/571e9e97afd12dab1c3bcd60c1586c6a7dfe6f08))
 
