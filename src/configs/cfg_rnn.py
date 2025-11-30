@@ -16,7 +16,7 @@ from src.configs.cfg_base4dl import DataPreprocessor, Hyperparameters
 class RNNParams:
     CLASSES: int = 2  # Binary classification is 2
     EMBEDDING_DIM: int = 256
-    HIDDEN_SIZE: int = 128
+    HIDDEN_SIZE: int = 64
     LAYERS: int = 2
     TEMPERATURE: float = 1.0
 
