@@ -80,6 +80,7 @@
 
 ### Bug Fixes
 
+- update cumulative accuracy print statements in evaluator.py for clarity ([ee240d8](https://github.com///commit/ee240d826f38af0f0b0ff5965fe8cf5d1271bb9d))
 - adjust index formatting in cumulative accuracy print statement in evaluator.py ([b2e7889](https://github.com///commit/b2e7889b0c84a9b5e595317196a8fd93bf0e087b))
 - correct formatting in accuracy print statement in evaluator.py ([c33c782](https://github.com///commit/c33c782af9eb53728d4f2d182ba87697db1f57a7))
 - fix the parameters in the cfg_base4dl.py ([2b8820f](https://github.com///commit/2b8820fb5d9410bdc22b4428b645a53fb7ec750b))
@@ -89,6 +90,7 @@
 
 ### Chore
 
+- update CHANGELOG.md with recent changes and formatting adjustments ([8d59e4d](https://github.com///commit/8d59e4d3f82978239ae90c39cf08c27ed54d6daf))
 - update CHANGELOG.md for version 0.1.0 release ([461e305](https://github.com///commit/461e305732ce773bf7b1622684f14d94688b98f0))
 - update CHANGELOG.md with recent feature additions and bug fixes ([059ed3b](https://github.com///commit/059ed3b70481ee95842cbe50cd9ffbe99aaf1ce6))
 - add .gitignore to exclude Python-generated files and IDE configurations ([995f430](https://github.com///commit/995f430b6980ef5552a1ec14d79276a5629c58b6))
