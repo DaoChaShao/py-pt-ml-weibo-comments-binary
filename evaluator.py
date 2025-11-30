@@ -130,7 +130,7 @@ def main() -> None:
 
                     _acc = correct / total
                     print(
-                        f"[{i:<05d}/{len(dataloader)}] Cumulative Accuracy: {green(f'{_acc:.4f}')} | failure: {red(f'{1.0 - _acc:.4f}')}"
+                        f"[{i:>05d}/{len(dataloader)}] Cumulative Accuracy: {green(f'{_acc:.4f}')} | failure: {red(f'{1.0 - _acc:.4f}')}"
                     )
 
             accuracy: float = correct / total
