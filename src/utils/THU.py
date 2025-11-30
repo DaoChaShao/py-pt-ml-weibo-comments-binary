@@ -10,6 +10,10 @@ from thulac import thulac
 
 from src.utils.decorator import timer
 
+# Initialize THULAC with segmentation only or not
+thu_false = thulac(seg_only=False)
+thu_true = thulac(seg_only=True)
+
 
 @timer
 def cut_pos(text: str) -> tuple[list[tuple[str, str]], list[str]]:
@@ -17,9 +21,7 @@ def cut_pos(text: str) -> tuple[list[tuple[str, str]], list[str]]:
     :param text: text to cut
     :return: list of tuples of cut words and their POS tags
     """
-    # Initialize THULAC with segmentation only
-    thu = thulac(seg_only=False)
-    words_tag: list[tuple[str, str]] = thu.cut(text)
+    words_tag: list[tuple[str, str]] = thu_false.cut(text)
     words: list[str] = [word for word, tag in words_tag]
 
     print(f"The text has been cut into {len(words)} words using THULAC.")
@@ -27,17 +29,17 @@ def cut_pos(text: str) -> tuple[list[tuple[str, str]], list[str]]:
     return words_tag, words
 
 
-@timer
+# @timer
 def cut_only(text: str) -> list[str]:
     """ Cut text using THULAC without POS tags
     :param text: text to cut
     :return: list of cut words
     """
-    # Initialize THULAC with segmentation only
-    thu = thulac(seg_only=True)
-    words: list[str] = thu.cut(text)
+    words: list[str] = thu_true.cut(text)
+    # Flatten the list of tuples to get only words
+    words = [word for word, _ in words]
 
-    print(f"The text has been cut into {len(words)} words using THULAC (without POS tags).")
+    # print(f"The text has been cut into {len(words)} words using THULAC (without POS tags).")
 
     return words
 
