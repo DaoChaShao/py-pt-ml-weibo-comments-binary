@@ -70,7 +70,7 @@ def record_log(name: str, log_dir: str = str(CONFIG.FILEPATHS.LOGS), mode: str =
 
 if __name__ == "__main__":
     # Get the current date and time
-    dt = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    dt = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 
     # Initialize logger
     logger: Logger = record_log(f"train@{dt}")
