@@ -5,6 +5,18 @@
 
 ### Features
 
+- add evaluator script for model performance evaluation ([4b5e5d0](https://github.com///commit/4b5e5d0c9a5bb5e86912d5164328050398501f71))
+- add training log for THULAC model with performance metrics ([f845852](https://github.com///commit/f845852092d3c4d0353221639d02bc8324ef96cc))
+- add training log for spacy model with performance metrics ([7667fcd](https://github.com///commit/7667fcd5c8c1808f2cbdb41754a435cc11c2cd38))
+- add a trained model.pth file for Chinese Sentiment Analysis System, such as Weibo comments ([ade79e7](https://github.com///commit/ade79e7da96176b6990dda7234ac5c83fe892e3e))
+- refactor THU.py to initialize THULAC instances for segmentation options ([f01122d](https://github.com///commit/f01122d3832ec6cc73d6f66a334c00d034ea02ec))
+- update prepare_data function to return data loaders and additional data for sequence classification ([c898bd1](https://github.com///commit/c898bd1338b42126c9bfb28b0969f9f92fa7f24e))
+- enhance RNN trainer with logging, metrics calculation, and support for learning rate scheduling ([dec70a1](https://github.com///commit/dec70a172101fa6820ee11395c1f7ad3609f61d7))
+- refactor tensor conversion functions to handle multiple data types and add sequence padding functionality ([9eda7eb](https://github.com///commit/9eda7eb00430ba4c1c4ec69c1a97bf0405138eb6))
+- update process_data function to include dictionary and max_len in return values and switch to cut_only for tokenization ([042177a](https://github.com///commit/042177a81f6e2094761ec690f26c26a47d6f3f19))
+- implement main function for data inference and prediction using LSTM model ([509642f](https://github.com///commit/509642ff0350d7e9563043917c8c885c66367987))
+- implement main function for RNN sequence classification with argument parsing and model training ([3e9f6c7](https://github.com///commit/3e9f6c74603f90e2d71a88b3e421e5cad55da6ae))
+- add dictionary.json for inference and evaluation of the trained model.pth ([27bacfb](https://github.com///commit/27bacfbbfb4b6390cabb32f949e01d249d5fb044))
 - implement data preparation function with timing and preprocessing ([bb114a6](https://github.com///commit/bb114a6e06656396afe0f6664783990e15cef3ae))
 - add data preprocessing functionality in preprocessor.py ([e7e2d07](https://github.com///commit/e7e2d07549bd5313efbbbda689617d3da336cef9))
 - add build_word2id_seqs utility to module exports ([e0d6dae](https://github.com///commit/e0d6daee0657a4cdf3b4a7757ae6d5a07503bd65))
@@ -67,16 +79,31 @@
 
 ### Bug Fixes
 
+- fix the parameters in the cfg_base4dl.py ([2b8820f](https://github.com///commit/2b8820fb5d9410bdc22b4428b645a53fb7ec750b))
+- fix the parameters in the cfg_rnn.py ([8b357a7](https://github.com///commit/8b357a7ee9ca2f2981de01a9415985f8f6065e7d))
 - comment out ALPHA hyperparameter in cfg_base4dl.py ([15799bd](https://github.com///commit/15799bd95ddbfcfc30dd413ef05b456121dfa984))
 - update import from processor to preprocessor in __init__.py ([66c4c67](https://github.com///commit/66c4c672939c46e455779bcf156d954e9b2b1610))
 
 ### Chore
 
+- update CHANGELOG.md with recent feature additions and bug fixes ([772f75d](https://github.com///commit/772f75dc46e115ff2bc9997284c4011682b741a0))
 - add .gitignore to exclude Python-generated files and IDE configurations ([995f430](https://github.com///commit/995f430b6980ef5552a1ec14d79276a5629c58b6))
 - update CHANGELOG.md with recent feature additions ([571e9e9](https://github.com///commit/571e9e97afd12dab1c3bcd60c1586c6a7dfe6f08))
 
 ### Code Refactoring
 
+- rename file from unet_sem_seg.py to sem_seg.py for clarity ([f6bd9bb](https://github.com///commit/f6bd9bbd92c825663aba7c39b8eb0b1bdb4fa8d4))
+- update timestamp format in logger.py for improved readability ([b757c86](https://github.com///commit/b757c867063f8cd40fbb2212d30410972230f797))
+- update logging format in rnn_seq_classification.py for training timestamps ([cc5ac0d](https://github.com///commit/cc5ac0dc7951261f08c7def8b696155967222f03))
+- update logging format in rnn_seq_classification.py for clarity ([ede8b2f](https://github.com///commit/ede8b2f79e2f04557690f2475031489841ed4f9a))
+- rename rnn_seq_next_step.py to seq_next_step.py for clarity ([b803e88](https://github.com///commit/b803e884bdf5f9fd69ebeebb145b988421e27f03))
+- rename rnn_seq_classification.py to seq_classification.py for clarity ([be186da](https://github.com///commit/be186da0016e5279033275cc5acba5d4d6839cf6))
+- rename unet_sem_seg.py to sem_seg.py for clarity ([e4fe47e](https://github.com///commit/e4fe47ea2596d0e6f70764c2e35c58f83f00dff1))
+- rename unet_mask_mapper.py to mask_mapper.py for clarity ([5465647](https://github.com///commit/54656472addd0c244fdc314b8e32333d4327902e))
+- rename mlp_label_classification.py to label_classification.py and simplify tensor conversion ([ad0df6f](https://github.com///commit/ad0df6f277d0cc3dddd1291216b6576346fff94b))
+- remove unused timer decorator from read_yaml function ([57f697d](https://github.com///commit/57f697d9b43d93794db6f55139ed0e63f5616fff))
+- update tensor conversion functions in __init__.py ([92a4342](https://github.com///commit/92a4342da64106ff87236fff76cb51344bf208d0))
+- update import paths for dataset modules in __init__.py ([129a385](https://github.com///commit/129a385419eb154343fa8c0ae840bfbdcf20bc05))
 - remove TODO comment for further data preparation steps in setter.py ([2759ecb](https://github.com///commit/2759ecbc97b07654bc98a2157cb9efd9b8c95ac3))
 - change name of processor.py ([052f2ac](https://github.com///commit/052f2ac26f95767626a4a11bc44bb907d8955c49))
 
